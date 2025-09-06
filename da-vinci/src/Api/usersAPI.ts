@@ -3,7 +3,7 @@ import type { User } from "../types/UserType";
 
 // Sayın Yetkili.
 // Normalde buradaki BASE_URL gibi yapıları .env dosyasında yazılması daha doğrudur.
-// Ancak burada kullanmayı tercih ettim çünkü sizin de yapıyı görmenizi ve git ignore aracılığı ile erişiminini engellenmemesini istedim.
+// ncak burada kullanmayı tercih ettim çünkü sizin de yapıyı görmenizi istedim.
 const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 export const getUsers = async (): Promise<User[]> => {
