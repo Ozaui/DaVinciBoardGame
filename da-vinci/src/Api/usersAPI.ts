@@ -10,3 +10,13 @@ export const getUsers = async (): Promise<User[]> => {
   const response = await axios.get<User[]>(`${BASE_URL}/users`);
   return response.data;
 };
+
+export const createUser = async (user: User): Promise<User> => {
+  const response = await axios.post(`${BASE_URL}/users`, user);
+  return response.data;
+};
+
+export const updateUser = async (user: User): Promise<User> => {
+  const response = await axios.put<User>(`${BASE_URL}/users/${user.id}`, user);
+  return response.data;
+};
