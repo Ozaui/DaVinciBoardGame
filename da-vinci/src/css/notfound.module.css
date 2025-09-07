@@ -1,0 +1,13 @@
+.NotFoundContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .NotFoundContainer {
+    flex-direction: column;
+  }
+}

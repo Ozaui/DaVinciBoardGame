@@ -1,0 +1,84 @@
+.updatePostWrapper {
+  background: #1a1d24;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.updateTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f3f4f6;
+  margin-bottom: 16px;
+}
+
+.updateForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.inputField {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #374151;
+  background: #0f1117;
+  color: #f3f4f6;
+  font-size: 15px;
+  outline: none;
+}
+
+.inputField:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
+}
+
+.errorMsg {
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.updateActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (min-width: 1200px) {
+  .updateActions {
+    justify-content: flex-start;
+  }
+}
+
+.updateBtn,
+.cancelBtn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #f3f4f6;
+}
+
+.updateBtn {
+  background-color: #166534;
+}
+
+.updateBtn:hover {
+  background-color: #15803d;
+}
+
+.cancelBtn {
+  background-color: #4b5563;
+}
+
+.cancelBtn:hover {
+  background-color: #6b7280;
+}

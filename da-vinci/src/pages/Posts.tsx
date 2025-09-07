@@ -5,6 +5,7 @@ import { fetchUsers } from "../features/users/usersThunk";
 import Loading from "../components/Loading";
 import type { Post } from "../types/PostType";
 import UpdatePost from "../components/Post/UpdatePost";
+import styles from "../css/Post/PostPage.module.css";
 
 const Posts: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -44,33 +45,59 @@ const Posts: React.FC = () => {
       </div>
     );
   return (
-    <div>
-      <h2>Posts</h2>
-      <ul>
+    <div className={styles.postsContainer}>
+      <h2 className={styles.postsHeader}>Posts</h2>
+      <div className={styles.postsWrapper}>
         {allPosts.map((post) => {
           const user = users.find((u) => u.id === post.userId);
-          return (
-            <li key={post.id}>
-              <h2>PostID : {post.id}</h2>
-              <h2>Title: {post.title}</h2>
-              <h4>User: {user ? user.name : "Bilinmeyen kullanıcı"}</h4>
-              {editingPostId === post.id && (
-                <UpdatePost
-                  post={post}
-                  onClose={() => setEditingPostId(null)}
-                />
-              )}
-              <button onClick={() => dispatch(deletePostThunk(post.id))}>
-                Postu sil
-              </button>
+          const isEditing = editingPostId === post.id;
 
-              <button onClick={() => setEditingPostId(post.id)}>
-                Postu Düzenle
-              </button>
-            </li>
+          return (
+            <div key={post.id} className={styles.postCard}>
+              <h2 className={styles.postId}>
+                <span className={styles.postIdLabel}>Post ID:</span> {post.id}
+              </h2>
+              <h2 className={styles.postTitle}>
+                <span className={styles.postTitleLabel}>Title:</span>{" "}
+                {post.title}
+              </h2>
+              <h4 className={styles.postUser}>
+                <span className={styles.postUserLabel}>User:</span>{" "}
+                {user ? user.name : "Bilinmeyen kullanıcı"}
+              </h4>
+
+              <div
+                className={`${styles.updateWrapper} ${isEditing ? styles.active : ""}`}
+              >
+                {isEditing && (
+                  <UpdatePost
+                    post={post}
+                    onClose={() => setEditingPostId(null)}
+                  />
+                )}
+              </div>
+
+              <div className={styles.actions}>
+                <button
+                  className={styles.deleteBtn}
+                  onClick={() => dispatch(deletePostThunk(post.id))}
+                >
+                  Postu Sil
+                </button>
+
+                {editingPostId !== post.id && (
+                  <button
+                    className={styles.editBtn}
+                    onClick={() => setEditingPostId(post.id)}
+                  >
+                    Postu Düzenle
+                  </button>
+                )}
+              </div>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 };
