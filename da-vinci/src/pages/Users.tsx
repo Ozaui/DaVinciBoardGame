@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/AppHook";
-import { fetchUsers } from "../features/users/usersThunk";
+import { deleteUserThunk, fetchUsers } from "../features/users/usersThunk";
 import Loading from "../components/Loading";
 import CreateUser from "../components/User/CreateUser";
 import UpdateUser from "../components/User/UpdateUser";
+import CreatePost from "../components/Post/CreatePost";
+import { Link } from "react-router-dom";
 
 const Users: React.FC = () => {
   const dispatch = useAppDispatch();
   const { users, loading, error } = useAppSelector((state) => state.users);
-
   const [editingUserId, setEditingUserId] = useState<number | null>(null);
+  const [creatingPostFor, setCreatingPostFor] = useState<number | null>(null);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -20,6 +22,7 @@ const Users: React.FC = () => {
 
   return (
     <div>
+      <Link to="/posts">Go to Posts</Link>
       <CreateUser />
       <h2>Users</h2>
       <ul>
@@ -35,11 +38,24 @@ const Users: React.FC = () => {
             >
               Edit
             </button>
+            <button onClick={() => dispatch(deleteUserThunk(user.id))}>
+              Delete User
+            </button>
+            <button
+              onClick={() =>
+                setCreatingPostFor(creatingPostFor === user.id ? null : user.id)
+              }
+            >
+              Create Post
+            </button>
 
-            {/* Sadece bu kullanıcının ID'si editingUserId ile eşleşirse form göster */}
+            {/* Update User Form */}
             {editingUserId === user.id && (
               <UpdateUser user={user} onClose={() => setEditingUserId(null)} />
             )}
+
+            {/* Create Post Form */}
+            {creatingPostFor === user.id && <CreatePost userId={user.id} />}
           </li>
         ))}
       </ul>

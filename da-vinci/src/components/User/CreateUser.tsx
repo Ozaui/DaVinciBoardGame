@@ -1,6 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useAppDispatch, useAppSelector } from "../../hooks/AppHook";
 import { createUserThunk } from "../../features/users/usersThunk";
+import { userValidationSchema } from "../../schemas/userSchema";
 
 const CreateUser: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -11,6 +12,7 @@ const CreateUser: React.FC = () => {
 
       <Formik
         initialValues={{ name: "", username: "", email: "" }}
+        validationSchema={userValidationSchema}
         onSubmit={(values, { resetForm }) => {
           const newUser = {
             id: users.length + 1,

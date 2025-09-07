@@ -1,5 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { createUser, getUsers, updateUser } from "../../Api/usersAPI";
+import {
+  createUser,
+  deleteUser,
+  getUsers,
+  updateUser,
+} from "../../Api/usersAPI";
 import type { User } from "../../types/UserType";
 
 export const fetchUsers = createAsyncThunk<User[]>(
@@ -22,5 +27,13 @@ export const updateUserThunk = createAsyncThunk<User, User>(
   async (user: User) => {
     const response = await updateUser(user);
     return response;
+  }
+);
+
+export const deleteUserThunk = createAsyncThunk<number, number>(
+  "users/deleteUserThunk",
+  async (userId: number) => {
+    await deleteUser(userId);
+    return userId;
   }
 );

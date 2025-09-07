@@ -10,3 +10,17 @@ export const getPosts = async (): Promise<Post[]> => {
   const response = await axios.get<Post[]>(`${BASE_URL}/posts`);
   return response.data;
 };
+
+export const createPost = async (post: Post): Promise<Post> => {
+  const response = await axios.post(`${BASE_URL}/posts`, post);
+  return response.data;
+};
+
+export const updatePost = async (post: Post): Promise<Post> => {
+  const response = await axios.put<Post>(`${BASE_URL}/users/${post.id}`, post);
+  return response.data;
+};
+
+export const deletePost = async (postId: number): Promise<void> => {
+  await axios.delete(`${BASE_URL}/users/${postId}`);
+};

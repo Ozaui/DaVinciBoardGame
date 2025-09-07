@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { User } from "../../types/UserType";
-import { fetchUsers, createUserThunk, updateUserThunk } from "./usersThunk";
+import {
+  fetchUsers,
+  createUserThunk,
+  updateUserThunk,
+  deleteUserThunk,
+} from "./usersThunk";
 
 type UsersState = {
   users: User[];
@@ -66,6 +71,24 @@ const usersSlice = createSlice({
         state.error =
           action.error.message ||
           "Kullanıcı güncellerken bir hata ile karşılaşıldı";
+      })
+      //Kullanıcı silmek için
+      .addCase(deleteUserThunk.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(
+        deleteUserThunk.fulfilled,
+        (state, action: PayloadAction<number>) => {
+          state.users = state.users.filter((u) => u.id !== action.payload);
+          state.loading = false;
+        }
+      )
+      .addCase(deleteUserThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.error =
+          action.error.message ||
+          "Kullanıcı silinirken bir hata ile karşılaşıldı";
       });
   },
 });
