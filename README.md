@@ -6,7 +6,9 @@ Proje, kullanıcı ve post bilgilerini çekme ve bu bilgiler üzerinde **CRUD (C
 ## Demo
 [Canlı Demo](https://yourmeal.example.com)
 
-![Ana Sayfa](./screenshots/homepage.png)
+![Ana Sayfa](./screenshots/HomePage.png)
+![Posts Sayfası](./screenshots/Posts.png)
+![Users Sayfası](./screenshots/Users.png)
 
 
 ## Özellikler
