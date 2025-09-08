@@ -1,13 +1,14 @@
 # DaVinci Board Game Frontend Projesi
 
-Bu proje, **DaVinci Game** iş başvurusu amacıyla geliştirilmiş bir frontend uygulamasıdır.  
+Bu proje, **DaVinci Board Game** iş başvurusu amacıyla geliştirilmiş bir frontend uygulamasıdır.  
 Proje, kullanıcı ve post bilgilerini çekme ve bu bilgiler üzerinde **CRUD (Create, Read, Update, Delete)** işlemleri yapabilme yeteneğine sahiptir.
 
 ## Demo
 [Canlı Demo](https://yourmeal.example.com)
 
-![Ana Sayfa](./screenshots/homepage.png)
-
+<img src="./screenshots/HomePage.png" alt="Ana Sayfa" width="600"/>
+<img src="./screenshots/Posts.png" alt="Posts Sayfası" width="600"/>
+<img src="./screenshots/Users.png" alt="Users Sayfası" width="600"/>
 
 ## Özellikler
 - Kullanıcı bilgilerini görüntüleme
