@@ -30,7 +30,7 @@ cd da-vinci
 ```bash
 npm install
 ```
-### veya
+veya
 ```bash
 yarn install
 ```
@@ -39,7 +39,7 @@ yarn install
 ```bash
 npm start
 ```
-### veya
+ veya
 ```bash
 yarn start
 ```
