@@ -1,83 +1,83 @@
-.updatePostWrapper {
+.createUserCard {
   background: #1a1d24;
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.updateTitle {
+.createUserHeader {
   font-size: 22px;
   font-weight: 700;
   color: #f3f4f6;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  text-align: center;
 }
 
-.updateForm {
+.createUserForm {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
-.inputField {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #374151;
-  background: #0f1117;
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formInput {
+  padding: 10px 12px;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 16px;
+  background-color: #171717;
   color: #f3f4f6;
-  font-size: 15px;
-  outline: none;
 }
 
-.inputField:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
+.formInput::placeholder {
+  color: #9ca3af;
 }
 
-.errorMsg {
-  color: #ef4444;
-  font-size: 13px;
-  font-weight: 500;
+.errorMessage {
+  color: #f87171;
+  font-size: 14px;
 }
 
-.updateActions {
+.userActions {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 10px;
   margin-top: 12px;
 }
 
-@media (min-width: 1200px) {
-  .updateActions {
-    justify-content: flex-start;
-  }
-}
-
-.updateButton,
+/* Buttons */
+.submitButton,
 .cancelButton {
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: white;
   background-color: #171717;
-  padding: 1em 2em;
+  padding: 0.8em 1.5em;
   border: none;
   border-radius: 0.6rem;
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  width: max-content;
 }
 
-.updateButton span:not(:nth-child(6)) {
+.submitButton span:not(:nth-child(6)) {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   height: 30px;
   width: 30px;
-  background-color: #28aa11;
+  background-color: #0c66ed;
   border-radius: 50%;
   transition: 0.6s ease;
 }
@@ -94,37 +94,35 @@
   transition: 0.6s ease;
 }
 
-.updateButton span:nth-child(6),
+.submitButton span:nth-child(6),
 .cancelButton span:nth-child(6) {
   position: relative;
 }
 
-.updateButton span:nth-child(1),
+/* Span animasyon pozisyonları */
+.submitButton span:nth-child(1),
 .cancelButton span:nth-child(1) {
   transform: translate(-3.3em, -4em);
 }
-
-.updateButton span:nth-child(2),
+.submitButton span:nth-child(2),
 .cancelButton span:nth-child(2) {
   transform: translate(-6em, 1.3em);
 }
-
-.updateButton span:nth-child(3),
+.submitButton span:nth-child(3),
 .cancelButton span:nth-child(3) {
   transform: translate(-0.2em, 1.8em);
 }
-
-.updateButton span:nth-child(4),
+.submitButton span:nth-child(4),
 .cancelButton span:nth-child(4) {
   transform: translate(3.5em, 1.4em);
 }
-
-.updateButton span:nth-child(5),
+.submitButton span:nth-child(5),
 .cancelButton span:nth-child(5) {
   transform: translate(3.5em, -3.8em);
 }
 
-.updateButton:hover span:not(:nth-child(6)),
+/* Hover efekti */
+.submitButton:hover span:not(:nth-child(6)),
 .cancelButton:hover span:not(:nth-child(6)) {
   transform: translate(-50%, -50%) scale(4);
   transition: 1.5s ease;

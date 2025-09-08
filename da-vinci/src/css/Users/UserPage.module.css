@@ -1,5 +1,5 @@
 /* Ana Başlık */
-.postsHeader {
+.usersHeader {
   font-size: 28px;
   font-weight: 700;
   color: #f3f4f6;
@@ -10,8 +10,8 @@
   padding-bottom: 10px;
 }
 
-/* Posts Grid */
-.postsWrapper {
+/* Users Grid */
+.usersWrapper {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
@@ -21,8 +21,8 @@
   margin: 0 auto;
 }
 
-/* Post Kartı */
-.postCard {
+/* User Kartı */
+.userCard {
   background: #1a1d24;
   border-radius: 16px;
   padding: 20px;
@@ -31,57 +31,49 @@
   justify-content: space-between;
 }
 
-.postCard:hover {
+.userCard:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
 }
 
-/* Post Başlıkları ve Etiketler */
-.postId,
-.postTitle,
-.postUser {
+/* User Bilgileri */
+.userName,
+.userUsername,
+.userEmail {
   margin-bottom: 8px;
 }
 
-.postIdLabel,
-.postTitleLabel,
-.postUserLabel {
-  font-weight: 500;
-  color: #d1d5db;
-  margin-right: 6px;
-}
-
-/* Değer kısımları */
-.postId {
-  font-size: 14px;
-  font-weight: 700;
-  color: #f87171;
-}
-
-.postTitle {
+.userName {
   font-size: 22px;
   font-weight: 700;
   color: #f3f4f6;
 }
 
-.postUser {
+.userUsername {
   font-size: 16px;
   font-weight: 600;
   color: #60a5fa;
 }
 
+.userEmail {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f871db;
+}
+
 /* Butonlar */
-.actions {
+.userActions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: auto;
 }
 
-@media (min-width: 1200px) {
-  .actions {
-    justify-content: flex-start;
-  }
+.mainButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .noStyleLink {
@@ -90,16 +82,25 @@
   font-size: inherit;
 }
 
-/* UpdatePost Wrapper */
-.updateWrapper {
+@media (min-width: 1200px) {
+  .userActions {
+    justify-content: flex-start;
+  }
+}
+
+/* UpdateUser ve CreatePost Wrapper */
+.updateUserWrapper,
+.createPostWrapper,
+.createUserPopup {
   margin-top: 12px;
 }
 
-/* Delete - Update Buttons*/
-/* https://uiverse.io/KINGFRESS/purple-kangaroo-17 */
-
+/* Butonlar */
+/* Delete / Edit / Create Post Buttons */
+.editButton,
 .deleteButton,
-.updateButton,
+.createPostButton,
+.createUserButton,
 .navigateButton {
   font-weight: bold;
   color: white;
@@ -112,16 +113,24 @@
   overflow: hidden;
 }
 
-.navigateButton {
-  margin-right: 10px;
+.navigateButtons {
+  margin-right: 20px;
 }
 
-.navigateButtons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: end;
-  margin-right: 10px;
+.createUserButton {
+  margin-left: 20px;
+}
+
+.editButton span:not(:nth-child(6)) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 30px;
+  background-color: #28aa11;
+  border-radius: 50%;
+  transition: 0.6s ease;
 }
 
 .deleteButton span:not(:nth-child(6)) {
@@ -136,14 +145,15 @@
   transition: 0.6s ease;
 }
 
-.updateButton span:not(:nth-child(6)) {
+.createPostButton span:not(:nth-child(6)),
+.createUserButton span:not(:nth-child(6)) {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   height: 30px;
   width: 30px;
-  background-color: #28aa11;
+  background-color: #0c66ed;
   border-radius: 50%;
   transition: 0.6s ease;
 }
@@ -160,44 +170,58 @@
   transition: 0.6s ease;
 }
 
+.editButton span:nth-child(6),
 .deleteButton span:nth-child(6),
-.updateButton span:nth-child(6),
+.createPostButton span:nth-child(6),
+.createUserButton span:nth-child(6),
 .navigateButton span:nth-child(6) {
   position: relative;
 }
 
+.editButton span:nth-child(1),
 .deleteButton span:nth-child(1),
-.updateButton span:nth-child(1),
+.createPostButton span:nth-child(1),
+.createUserButton span:nth-child(1),
 .navigateButton span:nth-child(1) {
   transform: translate(-3.3em, -4em);
 }
 
+.editButton span:nth-child(2),
 .deleteButton span:nth-child(2),
-.updateButton span:nth-child(2),
+.createPostButton span:nth-child(2),
+.createUserButton span:nth-child(2),
 .navigateButton span:nth-child(2) {
   transform: translate(-6em, 1.3em);
 }
 
+.editButton span:nth-child(3),
 .deleteButton span:nth-child(3),
-.updateButton span:nth-child(3),
+.createPostButton span:nth-child(3),
+.createUserButton span:nth-child(3),
 .navigateButton span:nth-child(3) {
   transform: translate(-0.2em, 1.8em);
 }
 
+.editButton span:nth-child(4),
 .deleteButton span:nth-child(4),
-.updateButton span:nth-child(4),
+.createPostButton span:nth-child(4),
+.createUserButton span:nth-child(4),
 .navigateButton span:nth-child(4) {
   transform: translate(3.5em, 1.4em);
 }
 
+.editButton span:nth-child(5),
 .deleteButton span:nth-child(5),
-.updateButton span:nth-child(5),
+.createPostButton span:nth-child(5),
+.createUserButton span:nth-child(5),
 .navigateButton span:nth-child(5) {
   transform: translate(3.5em, -3.8em);
 }
 
+.editButton:hover span:not(:nth-child(6)),
 .deleteButton:hover span:not(:nth-child(6)),
-.updateButton:hover span:not(:nth-child(6)),
+.createPostButton:hover span:not(:nth-child(6)),
+.createUserButton:hover span:not(:nth-child(6)),
 .navigateButton:hover span:not(:nth-child(6)) {
   transform: translate(-50%, -50%) scale(4);
   transition: 1.5s ease;

@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import type { Post } from "../types/PostType";
 import UpdatePost from "../components/Post/UpdatePost";
 import styles from "../css/Post/PostPage.module.css";
+import { Link } from "react-router-dom";
 
 const Posts: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -47,6 +48,33 @@ const Posts: React.FC = () => {
   return (
     <div className={styles.postsContainer}>
       <h2 className={styles.postsHeader}>Posts</h2>
+      <div className={styles.navigateButtons}>
+        <button className={styles.navigateButton}>
+          <span className="circle1"></span>
+          <span className="circle2"></span>
+          <span className="circle3"></span>
+          <span className="circle4"></span>
+          <span className="circle5"></span>
+          <span className="text">
+            {" "}
+            <Link to={"/users"} className={styles.noStyleLink}>
+              Users
+            </Link>
+          </span>
+        </button>
+        <button className={styles.navigateButton}>
+          <span className="circle1"></span>
+          <span className="circle2"></span>
+          <span className="circle3"></span>
+          <span className="circle4"></span>
+          <span className="circle5"></span>
+          <span className="text">
+            <Link to={"/"} className={styles.noStyleLink}>
+              Ana Sayfa
+            </Link>
+          </span>
+        </button>
+      </div>
       <div className={styles.postsWrapper}>
         {allPosts.map((post) => {
           const user = users.find((u) => u.id === post.userId);
@@ -79,18 +107,28 @@ const Posts: React.FC = () => {
 
               <div className={styles.actions}>
                 <button
-                  className={styles.deleteBtn}
+                  className={styles.deleteButton}
                   onClick={() => dispatch(deletePostThunk(post.id))}
                 >
-                  Postu Sil
+                  <span className="circle1"></span>
+                  <span className="circle2"></span>
+                  <span className="circle3"></span>
+                  <span className="circle4"></span>
+                  <span className="circle5"></span>
+                  <span className="text">Postu Sil</span>
                 </button>
 
                 {editingPostId !== post.id && (
                   <button
-                    className={styles.editBtn}
+                    className={styles.updateButton}
                     onClick={() => setEditingPostId(post.id)}
                   >
-                    Postu Düzenle
+                    <span className="circle1"></span>
+                    <span className="circle2"></span>
+                    <span className="circle3"></span>
+                    <span className="circle4"></span>
+                    <span className="circle5"></span>
+                    <span className="text">Postu Düzenle</span>
                   </button>
                 )}
               </div>

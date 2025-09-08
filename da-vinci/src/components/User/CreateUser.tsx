@@ -2,13 +2,18 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useAppDispatch, useAppSelector } from "../../hooks/AppHook";
 import { createUserThunk } from "../../features/users/usersThunk";
 import { userValidationSchema } from "../../schemas/userSchema";
+import styles from "../../css/Users/CreateUser.module.css";
 
-const CreateUser: React.FC = () => {
+type CreateUserProps = {
+  onClose: () => void;
+};
+const CreateUser: React.FC<CreateUserProps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const { users } = useAppSelector((state) => state.users);
+
   return (
-    <div>
-      <h2>Add User</h2>
+    <div className={styles.createUserCard}>
+      <h2 className={styles.createUserHeader}>Add User</h2>
 
       <Formik
         initialValues={{ name: "", username: "", email: "" }}
@@ -22,22 +27,69 @@ const CreateUser: React.FC = () => {
           };
           dispatch(createUserThunk(newUser));
           resetForm();
+          onClose();
         }}
       >
-        <Form>
-          <div>
-            <Field name="name" placeholder="İsminizi giriniz" />
-            <ErrorMessage name="name" />
+        <Form className={styles.createUserForm}>
+          <div className={styles.formGroup}>
+            <Field
+              name="name"
+              placeholder="İsminizi giriniz"
+              className={styles.formInput}
+            />
+            <ErrorMessage
+              name="name"
+              component="div"
+              className={styles.errorMessage}
+            />
           </div>
-          <div>
-            <Field name="username" placeholder="Kullanıcı adınızı giriniz" />
-            <ErrorMessage name="username" />
+          <div className={styles.formGroup}>
+            <Field
+              name="username"
+              placeholder="Kullanıcı adınızı giriniz"
+              className={styles.formInput}
+            />
+            <ErrorMessage
+              name="username"
+              component="div"
+              className={styles.errorMessage}
+            />
           </div>
-          <div>
-            <Field name="email" placeholder="Email adresinizi giriniz" />
-            <ErrorMessage name="email" />
+          <div className={styles.formGroup}>
+            <Field
+              name="email"
+              placeholder="Email adresinizi giriniz"
+              className={styles.formInput}
+            />
+            <ErrorMessage
+              name="email"
+              component="div"
+              className={styles.errorMessage}
+            />
           </div>
-          <button type="submit">Kullanıcı Ekle</button>
+
+          <div className={styles.userActions}>
+            <button type="submit" className={styles.submitButton}>
+              <span className={styles.circle1}></span>
+              <span className={styles.circle2}></span>
+              <span className={styles.circle3}></span>
+              <span className={styles.circle4}></span>
+              <span className={styles.circle5}></span>
+              <span className={styles.text}>Kullanıcı Ekle</span>
+            </button>
+            <button
+              type="button"
+              className={styles.cancelButton}
+              onClick={onClose}
+            >
+              <span className={styles.circle1}></span>
+              <span className={styles.circle2}></span>
+              <span className={styles.circle3}></span>
+              <span className={styles.circle4}></span>
+              <span className={styles.circle5}></span>
+              <span className={styles.text}>İptal</span>
+            </button>
+          </div>
         </Form>
       </Formik>
     </div>

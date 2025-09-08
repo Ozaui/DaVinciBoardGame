@@ -31,15 +31,25 @@ const UpdatePost: React.FC<UpdatePostProps> = ({ post, onClose }) => {
           </ErrorMessage>
 
           <div className={styles.updateActions}>
-            <button type="submit" className={styles.updateBtn}>
-              Güncelle
-            </button>
             <button
               type="button"
               onClick={onClose}
-              className={styles.cancelBtn}
+              className={styles.cancelButton}
             >
-              İptal
+              <span className="circle1"></span>
+              <span className="circle2"></span>
+              <span className="circle3"></span>
+              <span className="circle4"></span>
+              <span className="circle5"></span>
+              <span className="text">İptal</span>
+            </button>
+            <button type="submit" className={styles.updateButton}>
+              <span className="circle1"></span>
+              <span className="circle2"></span>
+              <span className="circle3"></span>
+              <span className="circle4"></span>
+              <span className="circle5"></span>
+              <span className="text">Postu Düzenle</span>
             </button>
           </div>
         </Form>

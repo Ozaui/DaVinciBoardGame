@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/AppHook";
 import { postValidationSchme } from "../../schemas/postSchema";
 import { createPostThunk } from "../../features/posts/postsThunk";
 import { addPost } from "../../features/posts/postsSlice";
+import styles from "../../css/Post/CreatePost.module.css";
 
 type CreatePostProps = {
   userId: number;
@@ -10,10 +11,10 @@ type CreatePostProps = {
 
 const CreatePost: React.FC<CreatePostProps> = ({ userId }) => {
   const dispatch = useAppDispatch();
-  const { posts } = useAppSelector((state) => state.posts);
+  const { posts, status } = useAppSelector((state) => state.posts);
   return (
-    <div>
-      <h2>Add Post</h2>
+    <div className={styles.createPostCard}>
+      <h2 className={styles.createPostHeader}>Add Post</h2>
       <Formik
         initialValues={{ title: "" }}
         validationSchema={postValidationSchme}
@@ -28,10 +29,26 @@ const CreatePost: React.FC<CreatePostProps> = ({ userId }) => {
           resetForm();
         }}
       >
-        <Form>
-          <Field name="title" placeholder="Post Başlığınıgiriniz" />
-          <ErrorMessage name="title" />
-          <button type="submit"> Post Ekle</button>
+        <Form className={styles.createPostForm}>
+          <Field
+            name="title"
+            placeholder="Post Başlığını giriniz"
+            className={styles.postInput}
+          />
+          {status && <p>İşlem Başarılı</p>}
+          <ErrorMessage
+            name="title"
+            component="div"
+            className={styles.errorMessage}
+          />
+          <button type="submit" className={styles.submitButton}>
+            <span className={styles.circle1}></span>
+            <span className={styles.circle2}></span>
+            <span className={styles.circle3}></span>
+            <span className={styles.circle4}></span>
+            <span className={styles.circle5}></span>
+            <span className={styles.text}>Post Ekle</span>
+          </button>
         </Form>
       </Formik>
     </div>

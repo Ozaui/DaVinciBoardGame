@@ -12,12 +12,14 @@ type PostsState = {
   posts: Post[];
   loading: boolean;
   error: string | null;
+  status: boolean;
 };
 
 const initialState: PostsState = {
   posts: JSON.parse(localStorage.getItem("localPosts") || "[]") as Post[],
   loading: false,
   error: null,
+  status: false,
 };
 
 const postsSlice = createSlice({
@@ -50,16 +52,19 @@ const postsSlice = createSlice({
       .addCase(createPostThunk.pending, (state) => {
         state.loading = true;
         state.error = null;
+        state.status = false;
       })
       .addCase(
         createPostThunk.fulfilled,
         (state, action: PayloadAction<Post>) => {
           state.posts.push(action.payload);
           state.loading = false;
+          state.status = true;
         }
       )
       .addCase(createPostThunk.rejected, (state, action) => {
         state.loading = false;
+        state.status = false;
         state.error =
           action.error.message || "Post oluştururken bir hata ile karşılaşıldı";
       })
