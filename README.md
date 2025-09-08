@@ -6,10 +6,9 @@ Proje, kullanıcı ve post bilgilerini çekme ve bu bilgiler üzerinde **CRUD (C
 ## Demo
 [Canlı Demo](https://yourmeal.example.com)
 
-![Ana Sayfa](./screenshots/HomePage.png)
-![Posts Sayfası](./screenshots/Posts.png)
-![Users Sayfası](./screenshots/Users.png)
-
+<img src="./screenshots/HomePage.png" alt="Ana Sayfa" width="600"/>
+<img src="./screenshots/Posts.png" alt="Posts Sayfası" width="600"/>
+<img src="./screenshots/Users.png" alt="Users Sayfası" width="600"/>
 
 ## Özellikler
 - Kullanıcı bilgilerini görüntüleme
