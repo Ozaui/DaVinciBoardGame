@@ -4,7 +4,7 @@ Bu proje, **DaVinci Board Game** iş başvurusu amacıyla geliştirilmiş bir fr
 Proje, kullanıcı ve post bilgilerini çekme ve bu bilgiler üzerinde **CRUD (Create, Read, Update, Delete)** işlemleri yapabilme yeteneğine sahiptir.
 
 ## Demo
-[Canlı Demo](https://yourmeal.example.com)
+[Canlı Demo](https://da-vinci-board-game.vercel.app/)
 
 <img src="./screenshots/HomePage.png" alt="Ana Sayfa" width="600"/>
 <img src="./screenshots/Posts.png" alt="Posts Sayfası" width="600"/>
