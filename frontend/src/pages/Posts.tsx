@@ -49,31 +49,26 @@ const Posts: React.FC = () => {
     <div className={styles.postsContainer}>
       <h2 className={styles.postsHeader}>Posts</h2>
       <div className={styles.navigateButtons}>
-        <button className={styles.navigateButton}>
-          <span className="circle1"></span>
-          <span className="circle2"></span>
-          <span className="circle3"></span>
-          <span className="circle4"></span>
-          <span className="circle5"></span>
-          <span className="text">
-            {" "}
-            <Link to={"/users"} className={styles.noStyleLink}>
-              Users
-            </Link>
-          </span>
-        </button>
-        <button className={styles.navigateButton}>
-          <span className="circle1"></span>
-          <span className="circle2"></span>
-          <span className="circle3"></span>
-          <span className="circle4"></span>
-          <span className="circle5"></span>
-          <span className="text">
-            <Link to={"/"} className={styles.noStyleLink}>
-              Ana Sayfa
-            </Link>
-          </span>
-        </button>
+        <Link to={"/users"} className={styles.noStyleLink}>
+          <button className={styles.navigateButton}>
+            <span className="circle1"></span>
+            <span className="circle2"></span>
+            <span className="circle3"></span>
+            <span className="circle4"></span>
+            <span className="circle5"></span>
+            <span className="text"> Users</span>
+          </button>
+        </Link>
+        <Link to={"/"} className={styles.noStyleLink}>
+          <button className={styles.navigateButton}>
+            <span className="circle1"></span>
+            <span className="circle2"></span>
+            <span className="circle3"></span>
+            <span className="circle4"></span>
+            <span className="circle5"></span>
+            <span className="text">Ana Sayfa</span>
+          </button>
+        </Link>
       </div>
       <div className={styles.postsWrapper}>
         {allPosts.map((post) => {
