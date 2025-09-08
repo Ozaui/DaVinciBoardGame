@@ -51,4 +51,4 @@ yarn start
 - React-Router-DOM
 - Axios
 
-# Önemli Not: Bu proje, module CSS kullanılarak geliştirilmiştir. Ancak, Bootstrap, Tailwind CSS gibi CSS framework’leriyle de geliştirilebilecek yetkinliğe sahibim. İstenildiği takdirde proje bu framework’ler kullanılarak revize edilebilir.
+# Önemli Not: Bu proje, module CSS kullanılarak geliştirilmiştir. Ancak, Bootstrap, Tailwind CSS gibi CSS framework’leriyle de geliştirilebilecek yetkinliğe sahibim. İstenildiği takdirde proje bu framework’ler kullanılarak revize edilebilir.
